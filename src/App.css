@@ -23,6 +23,9 @@
     background-color: black;
 
 }
+.itemCard, .itemCardBadge {
+    margin: 8px;
+}
 
 .itemCardImage {
     height: 150px !important;
