@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { addToCart, getAllProducts } from "../../API";
+import { addToCart, getAllProducts, getProductsByCategory } from "../../API";
 import {
   Card,
   List,
@@ -8,18 +8,30 @@ import {
   Badge,
   Rate,
   Button,
-  message
+  message,
+  Spin
 } from "antd";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Products = () => {
   const [items, setItems] = useState([]);
+  const param = useParams();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getAllProducts().then((res) => {
+    setLoading(true);
+    (param?.categoryId
+      ? getProductsByCategory(param.categoryId)
+      : getAllProducts()
+    ).then((res) => {
       setItems(res.products);
+      setLoading(false);
     });
-  }, []);
+  }, [param]);
+  if (loading) {
+    return <Spin spinning />;
+  }
 
   function AddToCartButton({ item }) {
     const addProductToCart = () => {
