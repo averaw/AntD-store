@@ -1,32 +1,38 @@
 module.exports = {
   env: {
-      browser: true,
-      es2021: true
+    browser: true,
+    es2021: true,
   },
-  extends: ["plugin:react/recommended", "standard", "plugin:react-hooks/recommended", "plugin:react/jsx-runtime"],
+  extends: [
+    "plugin:react/recommended",
+    "standard",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+  ],
   parserOptions: {
-      ecmaFeatures: {
-          jsx: true
-      },
-      ecmaVersion: 12,
-      sourceType: "module"
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: "module",
   },
   plugins: ["react"],
   rules: {
-      semi: [2, "always"],
-      indent: [0, 4],
-      "space-before-function-paren": [
-          "error",
-          { anonymous: "always", named: "never" }
-      ],
-      "multiline-ternary": ["off"],
-      quotes: [
-          "error",
-          "double",
-          {
-              allowTemplateLiterals: true,
-              avoidEscape: true
-          }
-      ]
-  }
+    "comma-dangle": ["off"],
+    semi: [2, "always"],
+    indent: [0, 4],
+    "space-before-function-paren": [
+      "error",
+      { anonymous: "always", named: "never" },
+    ],
+    "multiline-ternary": ["off"],
+    quotes: [
+      "error",
+      "double",
+      {
+        allowTemplateLiterals: true,
+        avoidEscape: true,
+      },
+    ],
+  },
 };
